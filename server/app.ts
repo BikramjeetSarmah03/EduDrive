@@ -2,6 +2,7 @@ require("dotenv").config();
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import ErrorMiddleware from "./middlewares/error";
 
 const app = express();
 
@@ -14,5 +15,7 @@ app.use(
     origin: process.env.ORIGINS,
   })
 );
+
+app.use(ErrorMiddleware);
 
 export default app;
