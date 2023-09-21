@@ -1,7 +1,9 @@
 import app from "./app";
-require("dotenv").config();
+import connectDatabase from "./utils/db";
 
-const PORT = process.env.PORT || 4000;
+connectDatabase();
+
+const PORT = process.env.PORT;
 // create server
 app.listen(PORT, () => {
   console.log(`Server started at ${PORT}`);
