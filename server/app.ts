@@ -3,6 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import ErrorMiddleware from "./middlewares/error";
+import routes from "./routes/user.route";
 
 const app = express();
 
@@ -13,8 +14,12 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: process.env.ORIGINS,
+    credentials: true,
   })
 );
+
+// routes
+app.use("/api/v1", routes);
 
 app.use(ErrorMiddleware);
 
