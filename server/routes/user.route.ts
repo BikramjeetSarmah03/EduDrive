@@ -5,12 +5,13 @@ import {
   logoutUser,
   registerUser,
 } from "../controllers/user.controller";
+import { isAuthenticated } from "../middlewares/auth";
 
 const router = express.Router();
 
 router.post("/register", registerUser);
 router.post("/activate-user", activateUser);
 router.post("/login", loginUser);
-router.get("/logout", logoutUser);
+router.get("/logout", isAuthenticated, logoutUser);
 
 export default router;
