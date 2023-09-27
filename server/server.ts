@@ -1,6 +1,8 @@
 import app from "./app";
+import cloudinaryConfig from "./utils/cloudinary";
 import connectDatabase from "./utils/db";
 
+cloudinaryConfig();
 connectDatabase();
 
 const PORT = process.env.PORT;
